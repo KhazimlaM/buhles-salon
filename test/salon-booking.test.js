@@ -75,19 +75,19 @@ describe("The Booking Salon", function () {
 
         const client = await booking.findClient(212356566);
         assert.deepEqual([
-
-              { 
+              
+            { 
                 first_name: 'Amita',
                 id: 5,
                 last_name: 'Mgweba',
                 phone_number: 212356566
               
                }
+
        ]
        ,client);
 
     });
-
 
 
     // it("should be able to allow a client to make a booking", async function () {

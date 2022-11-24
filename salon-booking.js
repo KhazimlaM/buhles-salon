@@ -28,16 +28,26 @@ export default function salonBooking(db) {
         return await db.manyOrNone(`select * from booking`)
      
     }
-  
+
+  async function findClientBookings(clientId){
+    let bookings = await db.manyOrNone(`select * from bookings where clientId = $1`,[clientId])
+    return bookings
+
+  }
  
-   
+  async function findStylistsForTreatment(treatmentId){
+      let styler = await db.manyOrNone(`select * from bookings where treatmentId = $1`,[treatmentId])
+      return styler
+  }
     return {
 
    findClient,
    findStylist,
    findTreatment,
    findAllTreatments,
-   findAllBookings
+   findAllBookings,
+   findClientBookings,
+   findStylistsForTreatment
+}
 
-    }
 }  
